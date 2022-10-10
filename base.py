@@ -24,6 +24,31 @@ class ReadFile:
         self.total_vertices = self.new_content[0]
         self.total_edges = self.new_content[1]
 
+
+class NewReadFile:
+
+    def __init__(self):
+
+        with open(sys.argv[1], 'r') as f:
+            contents = f.readlines()
+        self.edges_list = []
+        self.node_edges_count = []
+
+        self.vertex_string_list = []
+        self.vertex_int_list = []
+        for i in contents:
+            try:
+                self.node_edges_count.append(int(i))
+            except ValueError:
+                self.vertex_string_list.append(i)
+        for item in self.vertex_string_list:
+            if item[3:] == "\n":
+                self.vertex_int_list.append((int(item[0]), int(item[2])))
+
+
+
+
+
 #A Class for the Nodes in a Linked List
 class Node:
     def __init__(self, value=None):
