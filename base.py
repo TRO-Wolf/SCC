@@ -72,6 +72,10 @@ class NewReadFile:
         
         with open(self.input_string, 'r') as f:
             contents = f.readlines()
+            self.contents = contents
+
+        self.edges_list = []
+        self.node_edges_count = []
 
         self.vertex_string_list = []
         self.vertex_int_list = []
@@ -83,6 +87,19 @@ class NewReadFile:
         for item in self.vertex_string_list:
             if item[3:] == "\n":
                 self.vertex_int_list.append((int(item[0]), int(item[2])))
+        
+        self.total_nodes = self.node_edges_count[0]
+        self.total_edges = self.node_edges_count[1]
+
+        
+
+
+nrf = NewReadFile()
+
+print("filename is {}".format(nrf.input_string))
+print("number of nodes = {}".format(nrf.total_nodes))
+print("number of edges {}".format(nrf.total_edges))
+print("contents are {}".format(nrf.contents))
 
         
 
