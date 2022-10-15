@@ -45,6 +45,41 @@ class OldReadFile:
             if item[3:] == "\n":
                 self.vertex_int_list.append((int(item[0]), int(item[2])))
 
+class Old2ReadFile:
+
+
+    def __init__(self):
+
+        self.input_string = input("give commands here: ")
+
+        if '.' in self.input_string:
+            self.arg_location = self.input_string.find('.')
+
+            self.file_name = self.input_string[:self.arg_location]
+        
+        with open(self.input_string, 'r') as f:
+            contents = f.readlines()
+            self.contents = contents
+
+        self.edges_list = []
+        self.node_edges_count = []
+
+        self.vertex_string_list = []
+        self.vertex_int_list = []
+        
+        for i in contents:
+            try:
+                self.node_edges_count.append(int(i))
+            except ValueError:
+                self.vertex_string_list.append(i)
+        for item in self.vertex_string_list:
+            if item[3:] == "\n":
+                self.vertex_int_list.append((int(item[0]), int(item[2])))
+        
+        self.total_nodes = self.node_edges_count[0]
+        self.total_edges = self.node_edges_count[1]
+
+
 '''               
 input_string = input("give commands here: ")
 
@@ -77,21 +112,25 @@ class NewReadFile:
         self.edges_list = []
         self.node_edges_count = []
 
-        self.vertex_string_list = []
-        self.vertex_int_list = []
+        self.edges_string_list = []
+        self.edges_int_list = []
+        
         for i in contents:
             try:
                 self.node_edges_count.append(int(i))
             except ValueError:
-                self.vertex_string_list.append(i)
-        for item in self.vertex_string_list:
+                self.edges_string_list.append(i)
+        for item in self.edges_string_list:
             if item[3:] == "\n":
-                self.vertex_int_list.append((int(item[0]), int(item[2])))
+                self.edges_int_list.append((int(item[0]), int(item[2])))
+        
+        self.edges_int_list.append((int(self.edges_string_list[-1][0]), int(self.edges_string_list[-1][2])))
+
         
         self.total_nodes = self.node_edges_count[0]
         self.total_edges = self.node_edges_count[1]
 
-        
+      
 
 
 nrf = NewReadFile()
