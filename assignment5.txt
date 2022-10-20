@@ -1,0 +1,71 @@
+Design and Analysis of Algorithms
+CSCI 3650
+Spring 2019
+Assignment 5
+Implementation of Dijkstra’s Algorithm for finding Shortest Paths
+Date: Tue. 9th Apr.
+Due Date: Sun. 21st Apr.
+Objective: The objective of this assignment is to give you practice in implementing fairly
+non-trivial algorithms using efficient data structures.
+Your Task:
+• For this assignment you need to implement Dijkstra’s Algorithm for finding Single
+Source Shortest Paths. You can assume that the input graph is a directed weighted
+graph. You can also assume that all edge weights are non-negative.
+• Use the Adjacency List Representation to store and process the graph. Adjacency List
+representation is more suitable for this problem than the Adjacency Matrix Represen-
+tation.
+• For the priority queue data structure needed by the Dijkstra’s Algorithm, use the
+Binary Heap Data Structure. The heap data structure is not explicitly taught in
+this course. You should have learnt it in an undergraduate Data Structures course
+equivalent to our CSCI 2530. In case you are not familiar with it, you can read up
+from the book. The heap data structure is discussed in Section 2.5 of your textbook.
+Note that the trees involved in the heap exist only in your mind as a concept and you
+will actually use an array to implement the heap. Basically, you need three procedures
+that deal with heap data structures viz., BUILD MIN HEAP, HEAP EXTRACT MIN
+and HEAP DECREASE KEY. You can build the initial heap either by repeated in-
+sertion or by using a HEAPIFY procedure.
+• Make sure that the time complexity of your implementation of Dijkstra’s Algorithm
+is of the order ((V + E) lg V ). While implementing, it is very easy to code certain
+segments of the algorithm which are not spelt in full detail in such a way that the com-
+plexity of your program becomes more than the specified complexity of the algorithms.
+Be extra careful to avoid such pitfalls.
+• Make sure that your programs are written in C, C++ or Java and that they can run
+on the xlogin system of the department of computer science. Include a README file,
+if I need to do anything special to compile and run your program. Also, include any
+additional assumptions you are making and/or ways in which you are deviating from
+1the given specifications in such a README file. Your programs should be reasonably
+commented as well. Do not “borrow” code from other students or from the Internet.
+This applies to the code for the priority queue data structure as well.
+Input Format: Your program should read the input from stdin. The input format will be
+n
+e
+a1 b1 w1
+a2 b2 w2
+a3 b3 w3
+.
+.
+.
+.
+ae be we
+The number n in the first line specifies the total number of vertices in the graph. You
+may assume that the vertices are numbered from 0 through n − 1. The number e in the
+second line specifies the total number of edges in the graph. The remaining lines describe
+the edges one per line. The interpretation should be that the edge from the vertex ai to
+the vertex bi has weight wi . The edges may be presented to you in any order and hence do
+not assume anything about the order of the edges. Also note that the weights need not be
+integers. You may assume that the edge weights are non-negative. You may assume that
+the input data given is consistent. You may assume that the vertex with number 0 is the
+source vertex.
+Output Format: Your program should write the output to stdout. You should produce
+three lines of output for each vertex. Sample output format is shown below.
+Vertex 5
+Shortest Distance is 23.5
+Shortest Path is 0 8 6 3 5
+First line specifies the sink vertex number, the second line specifies the shortest distance
+to the sink from the source and finally the third line specifies a shortest path by listing the
+sequence of vertices in the path starting from the source to the sink.
+What to submit? Handin the source files by using the submit utility. To submit your
+program type the following command
+~gopal-assignments/csci3650-sp19/bin/submit 5 dijkstra.java pq.java readme
+The first component invokes the submit utility. The second component is the assignment
+number. The last component is the list of files (separated by blanks) that you wish to submit.
