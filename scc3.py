@@ -1,5 +1,16 @@
-
+import os
 from collections import defaultdict
+
+
+if os.path.exists('new_output.txt'):
+    os.remove('new_output.txt')
+
+if os.path.exists('output.txt'):
+    os.remove('output.txt')
+    
+
+
+
 
 class Graph:
   
